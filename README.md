@@ -1,48 +1,17 @@
-# Vertical Text Native Canvas
-
+# Vertical Text Editor
 Android向け縦書きテキストエディタのベースとなる基礎技術を実装したサンプルアプリです。
+DroidKaigi 2025の「[Android 16 × Jetpack Composeで縦書きテキストエディタを作ろう](https://2025.droidkaigi.jp/timetable/946512/)」のために作られました。
 
 ## 概要
+Android上で縦書きテキスト表示・編集を実現するための技術を検証・実装したものです。
+上部のドロップダウンで画面を切り替えられます。
 
-このアプリは、Android上で高品質な縦書きテキスト表示・編集を実現するための技術要素を検証・実装したものです。
-
-## 主な技術要素
-
-### 1. 縦書きテキストレンダリング
+## 主な検証技術
+### 1. 縦書き表示
 - `Paint.VERTICAL_TEXT_FLAG`を使用した縦書き表示
-- `TextRunShaper`によるグリフ単位での精密な文字配置
-- 絵文字とテキストの混在表示の最適化
+- `VerticalTextLayout`を使用した縦書き表示
 
-### 2. AnnotatedStringサポート
-- 文字色、背景色の範囲指定
-- アンダーライン、打ち消し線などの装飾
-- リッチテキスト表示機能
-
-### 3. テキスト選択・編集
-- `Paint.getOffsetForAdvance()`による正確なタップ位置検出
-- `Paint.getRunAdvance()`による選択範囲の座標計算
-- ドラッグによる範囲選択機能
-
-### 4. IME連携
-- `TextInputService`を使用したIME統合
-- 変換中テキスト（Composing Text）の処理
-- 各種編集コマンド（挿入、削除、選択等）への対応
-
-### 5. スケーリング機能
-- 画面サイズに応じた自動文字サイズ調整
-- タッチ処理とレンダリングでのスケール整合性確保
-
-### 6. キーボード対応
-- IMEパディングによるキーボード回避
-- 各種編集コマンドの完全サポート
-
-## 実装アプローチ
-
-このプロジェクトでは、Android Composeの`Canvas`とネイティブ`android.graphics`APIを組み合わせることで、高度な縦書きテキスト処理を実現しています。従来のテキストビューでは困難だった細かな制御が可能になっています。
-
-## 応用例
-
-- 小説・文書作成アプリ
-- 縦書き対応メモアプリ
-- 日本語学習アプリ
-- 電子書籍リーダー
+### 2. テキスト編集
+- PlatformTextInputModifierNodeを利用したCustomEditor
+- LocalTextInputServiceを利用したCustomTextInput
+- TextFieldStateとInterceptPlatformTextInputを利用したInterceptEditor
