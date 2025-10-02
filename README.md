@@ -1,6 +1,7 @@
 # Vertical Text Editor
 Android向け縦書きテキストエディタのベースとなる基礎技術を実装したサンプルアプリです。
 DroidKaigi 2025の「[Android 16 × Jetpack Composeで縦書きテキストエディタを作ろう](https://2025.droidkaigi.jp/timetable/946512/)」のために作られました。
+発表資料は https://speakerdeck.com/cc4966/vertical-text-editor-with-compose-on-android-16 にあります。
 
 ## 概要
 Android上で縦書きテキスト表示・編集を実現するための技術を検証・実装したものです。
